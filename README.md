@@ -15,7 +15,7 @@ A-L 组均已接入实时盘口/比分自动更新；页面以最新 `live-data.
 
 ## 自动更新
 
-网站通过 GitHub Actions 每 1 小时更新一次 `live-data.json`，前端每 5 分钟检查最新文件。
+网站通过 GitHub Actions 每 1 小时更新一次 `live-data.json`，定时点避开整点高峰；前端每 5 分钟检查最新文件。
 
 - 比分源：ESPN scoreboard，免 API Key。
 - 盘口源：The Odds API，需要在 GitHub 仓库 `Settings > Secrets and variables > Actions` 中添加 `ODDS_API_KEY`。
