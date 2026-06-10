@@ -1,0 +1,517 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #10201c;
+  --muted: #66756f;
+  --line: #d8e2dc;
+  --panel: #ffffff;
+  --panel-soft: #f5f8f6;
+  --field: #0d6b4b;
+  --field-dark: #084336;
+  --gold: #a87916;
+  --blue: #1d5f8f;
+  --danger: #a7332e;
+  --shadow: 0 14px 34px rgba(16, 32, 28, 0.12);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #eef3f0;
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 18px;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.top-panel,
+.toolbar,
+.standings-panel,
+.matches-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.top-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-strip {
+  height: 168px;
+  background-image: linear-gradient(90deg, rgba(5, 31, 29, 0.55), rgba(5, 31, 29, 0.06)), url("./assets/stadium-dashboard.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.headline {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 22px 10px;
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 1.18;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.clock-card {
+  min-width: 168px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  text-align: right;
+}
+
+.clock-card span,
+.metric-grid span,
+.card-top,
+.base-label,
+.live-label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.clock-card strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 19px;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px 22px 20px;
+}
+
+.metric-grid article {
+  min-height: 76px;
+  padding: 13px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdfc;
+}
+
+.metric-grid strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.toolbar {
+  margin-top: 14px;
+  padding: 14px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdfc;
+}
+
+.search-box input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+
+.control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.segmented button,
+.icon-button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.segmented button {
+  min-width: 42px;
+  padding: 0 11px;
+}
+
+.segmented button.active {
+  border-color: var(--field);
+  background: var(--field);
+  color: #ffffff;
+}
+
+.compact button {
+  min-width: 74px;
+}
+
+.model-note {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.standings-panel,
+.matches-panel {
+  padding: 14px;
+}
+
+.standings-panel {
+  align-self: start;
+  position: sticky;
+  top: 14px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#standingsGroup {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.standings-list {
+  display: grid;
+  gap: 8px;
+}
+
+.standing-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdfc;
+}
+
+.standing-row strong {
+  font-size: 14px;
+}
+
+.standing-row span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.rank {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e5f0eb;
+  color: var(--field-dark);
+  font-weight: 800;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+}
+
+.match-card {
+  min-height: 360px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.match-card.live {
+  border-color: #b78a28;
+  box-shadow: inset 0 0 0 1px rgba(183, 138, 40, 0.15);
+}
+
+.card-top,
+.confidence-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.group-pill,
+.confidence {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: #e5f0eb;
+  color: var(--field-dark);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.confidence.mid {
+  background: #fff3d4;
+  color: #755000;
+}
+
+.teams {
+  display: grid;
+  grid-template-columns: 1fr 122px 1fr;
+  align-items: center;
+  gap: 8px;
+  min-height: 116px;
+}
+
+.team {
+  display: grid;
+  align-content: center;
+  min-height: 86px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  font-weight: 800;
+  text-align: center;
+}
+
+.score-block {
+  display: grid;
+  justify-items: center;
+  gap: 3px;
+  min-height: 116px;
+  padding: 8px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #0e513f, #0a352d);
+  color: #ffffff;
+}
+
+.base-score {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.live-score {
+  font-size: 20px;
+  line-height: 1;
+  color: #ffe4a3;
+}
+
+.outcome {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.market,
+.rationale {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.market {
+  color: #284a42;
+}
+
+.live-editor {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.live-editor label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.live-editor input {
+  width: 100%;
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 8px;
+  color: var(--ink);
+}
+
+.icon-button {
+  width: 38px;
+  padding: 0;
+  font-size: 18px;
+}
+
+.empty {
+  padding: 28px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .standings-panel {
+    position: static;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 10px;
+    width: 100vw;
+  }
+
+  .top-panel,
+  .toolbar,
+  .standings-panel,
+  .matches-panel {
+    width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+  }
+
+  .visual-strip {
+    height: 118px;
+  }
+
+  .headline,
+  .control-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .clock-card {
+    min-width: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .headline {
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+    padding: 8px 14px 14px;
+  }
+
+  .metric-grid strong,
+  .model-note {
+    overflow-wrap: anywhere;
+  }
+
+  .segmented {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .segmented button {
+    min-width: 0;
+    padding: 0 6px;
+  }
+
+  .segmented.compact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teams {
+    grid-template-columns: 1fr;
+  }
+
+  .score-block {
+    min-height: 86px;
+    order: 2;
+  }
+
+  .away-team {
+    order: 3;
+  }
+
+  .live-editor {
+    grid-template-columns: 1fr;
+  }
+}
