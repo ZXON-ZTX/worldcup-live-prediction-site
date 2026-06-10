@@ -6,7 +6,9 @@ const state = {
   search: "",
   live: JSON.parse(localStorage.getItem("worldcup-live-inputs") || "{}"),
   feed: { generatedAt: "", note: "正在读取自动数据源...", sources: [], matches: {} },
-  feedError: ""
+  feedError: "",
+  manualBusy: false,
+  manualStatus: "等待数据源"
 };
 
 const groupFilters = document.querySelector("#groupFilters");
@@ -14,6 +16,13 @@ const statusFilters = document.querySelector("#statusFilters");
 const matchesGrid = document.querySelector("#matchesGrid");
 const standingsList = document.querySelector("#standingsList");
 const template = document.querySelector("#matchTemplate");
+const manualUpdateButton = document.querySelector("#manualUpdate");
+const manualRefreshButton = document.querySelector("#manualRefresh");
+const manualUpdateStatus = document.querySelector("#manualUpdateStatus");
+const workflowLink = document.querySelector("#workflowLink");
+
+const MANUAL_HELPER_URL = "http://127.0.0.1:8791/api/manual-update";
+const WORKFLOW_URL = "https://github.com/ZXON-ZTX/worldcup-live-prediction-site/actions/workflows/update-live-data.yml";
 
 function pad(value) {
   return String(value).padStart(2, "0");
@@ -22,6 +31,11 @@ function pad(value) {
 function formatDate(dateText) {
   const date = new Date(`${dateText}T12:00:00`);
   return `${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+function formatFeedTime(value) {
+  if (!value) return "--";
+  return new Date(value).toLocaleString("zh-CN", { hour12: false });
 }
 
 function feedEntry(match) {
@@ -160,16 +174,72 @@ function persistLive() {
   localStorage.setItem("worldcup-live-inputs", JSON.stringify(state.live));
 }
 
-async function fetchLiveData() {
+function renderManualStatus() {
+  if (manualUpdateStatus) {
+    manualUpdateStatus.textContent = state.manualStatus || "等待数据源";
+  }
+  if (manualUpdateButton) {
+    manualUpdateButton.disabled = state.manualBusy;
+  }
+  if (manualRefreshButton) {
+    manualRefreshButton.disabled = state.manualBusy;
+  }
+  if (workflowLink) {
+    workflowLink.href = WORKFLOW_URL;
+  }
+}
+
+async function fetchLiveData(options = {}) {
+  const previousGeneratedAt = state.feed.generatedAt;
+  if (options.manual) {
+    state.manualBusy = true;
+    state.manualStatus = "正在读取最新数据...";
+    renderManualStatus();
+  }
   try {
     const response = await fetch(`./live-data.json?ts=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     state.feed = await response.json();
     state.feedError = "";
+    if (options.manual) {
+      const label = formatFeedTime(state.feed.generatedAt);
+      state.manualStatus = state.feed.generatedAt && state.feed.generatedAt !== previousGeneratedAt
+        ? `已读取新数据：${label}`
+        : `已检查：当前数据 ${label}`;
+    }
   } catch (error) {
     state.feedError = `自动数据源暂不可用：${error.message}`;
+    if (options.manual) {
+      state.manualStatus = `读取失败：${error.message}`;
+    }
+  } finally {
+    if (options.manual) {
+      state.manualBusy = false;
+    }
   }
   render();
+}
+
+async function triggerManualUpdate() {
+  if (state.manualBusy) return;
+  state.manualBusy = true;
+  state.manualStatus = "正在触发后台抓取...";
+  renderManualStatus();
+
+  try {
+    const response = await fetch(MANUAL_HELPER_URL, { method: "POST" });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || result.ok === false) {
+      throw new Error(result.message || `HTTP ${response.status}`);
+    }
+    await fetchLiveData();
+    state.manualStatus = `手动更新完成：${formatFeedTime(result.generatedAt || state.feed.generatedAt)}，盘口覆盖 ${result.odds ?? "-"} / ${result.matches ?? "-"}`;
+  } catch (error) {
+    state.manualStatus = "未连接本地更新助手，可打开后台任务手动运行。";
+  } finally {
+    state.manualBusy = false;
+    render();
+  }
 }
 
 function renderGroups() {
@@ -293,7 +363,7 @@ function renderMatches() {
 
 function renderMetrics() {
   document.querySelector("#matchCount").textContent = data.matches.length;
-  const feedTime = state.feed.generatedAt ? new Date(state.feed.generatedAt).toLocaleString("zh-CN", { hour12: false }) : data.updatedAt;
+  const feedTime = state.feed.generatedAt ? formatFeedTime(state.feed.generatedAt) : data.updatedAt;
   document.querySelector("#updatedAt").textContent = feedTime;
   const oddsCoverage = data.matches.filter(match => {
     const feed = feedEntry(match);
@@ -320,6 +390,7 @@ function render() {
   renderStandings();
   renderMatches();
   renderMetrics();
+  renderManualStatus();
 }
 
 document.querySelector("#searchInput").addEventListener("input", event => {
@@ -338,6 +409,14 @@ document.querySelector("#resetLive").addEventListener("click", () => {
   state.live = {};
   persistLive();
   render();
+});
+
+manualRefreshButton?.addEventListener("click", () => {
+  fetchLiveData({ manual: true });
+});
+
+manualUpdateButton?.addEventListener("click", () => {
+  triggerManualUpdate();
 });
 
 renderClock();

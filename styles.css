@@ -166,6 +166,14 @@ h2 {
   margin-top: 12px;
 }
 
+.update-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .segmented {
   display: flex;
   flex-wrap: wrap;
@@ -173,7 +181,8 @@ h2 {
 }
 
 .segmented button,
-.icon-button {
+.icon-button,
+.action-button {
   min-height: 36px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -187,10 +196,37 @@ h2 {
   padding: 0 11px;
 }
 
-.segmented button.active {
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  padding: 0 12px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.segmented button.active,
+.action-button.primary {
   border-color: var(--field);
   background: var(--field);
   color: #ffffff;
+}
+
+.action-button.ghost {
+  background: var(--panel-soft);
+}
+
+.action-button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.manual-status {
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .compact button {
@@ -451,7 +487,8 @@ h2 {
   }
 
   .headline,
-  .control-row {
+  .control-row,
+  .update-row {
     align-items: stretch;
     flex-direction: column;
   }
@@ -492,6 +529,10 @@ h2 {
 
   .segmented.compact {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .action-button {
+    width: 100%;
   }
 
   .matches-grid {

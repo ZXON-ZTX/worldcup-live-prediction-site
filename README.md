@@ -22,3 +22,10 @@ A-L 组均已接入实时盘口/比分自动更新；页面以最新 `live-data.
 - 可选变量：`ODDS_SPORT_KEY`，默认 `soccer_fifa_world_cup`。
 
 没有配置 `ODDS_API_KEY` 时，网站仍会自动更新赛程/比分状态，但不会自动根据最新盘口修正预测。
+
+## 手动更新
+
+页面提供 `手动更新` 和 `刷新数据` 两个操作。
+
+- `刷新数据`：立即重新读取当前 `live-data.json`。
+- `手动更新`：在本机运行 `python scripts/manual_update_server.py` 后，可触发 GitHub Actions 抓取盘口并同步本地文件。
