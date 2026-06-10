@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T15:50:13.916667+00:00",
+  "generatedAt": "2026-06-10T15:56:00.971780+00:00",
   "mode": "automated",
   "note": "已尝试更新比分与盘口数据。",
   "sources": [
@@ -152,9 +152,9 @@
       "home": 0,
       "away": 0,
       "source": "The Odds API",
-      "oddsHomeWin": 0.272,
-      "oddsDraw": 0.34,
-      "oddsAwayWin": 0.388,
+      "oddsHomeWin": 0.273,
+      "oddsDraw": 0.329,
+      "oddsAwayWin": 0.398,
       "adjustedHomeScore": 0,
       "adjustedAwayScore": 1,
       "bookmaker": "FanDuel",
