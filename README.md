@@ -12,3 +12,13 @@
 ## 数据口径
 
 A 组已按 2026-06-10 公开盘口更新；B-L 组沿用当前小组报告预测，可继续按同一模型更新。
+
+## 自动更新
+
+网站通过 GitHub Actions 每 15 分钟更新一次 `live-data.json`。
+
+- 比分源：ESPN scoreboard，免 API Key。
+- 盘口源：The Odds API，需要在 GitHub 仓库 `Settings > Secrets and variables > Actions` 中添加 `ODDS_API_KEY`。
+- 可选变量：`ODDS_SPORT_KEY`，默认 `soccer_fifa_world_cup`。
+
+没有配置 `ODDS_API_KEY` 时，网站仍会自动更新赛程/比分状态，但不会自动根据最新盘口修正预测。

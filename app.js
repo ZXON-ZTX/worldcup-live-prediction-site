@@ -1,9 +1,12 @@
 const data = window.WORLD_CUP_PREDICTIONS;
+
 const state = {
   group: "A",
   status: "all",
   search: "",
-  live: JSON.parse(localStorage.getItem("worldcup-live-inputs") || "{}")
+  live: JSON.parse(localStorage.getItem("worldcup-live-inputs") || "{}"),
+  feed: { generatedAt: "", note: "正在读取自动数据源...", sources: [], matches: {} },
+  feedError: ""
 };
 
 const groupFilters = document.querySelector("#groupFilters");
@@ -21,10 +24,46 @@ function formatDate(dateText) {
   return `${date.getMonth() + 1}月${date.getDate()}日`;
 }
 
+function feedEntry(match) {
+  return state.feed.matches?.[match.id] || {};
+}
+
+function marketPrediction(match) {
+  const feed = feedEntry(match);
+  if (Number.isFinite(feed.adjustedHomeScore) && Number.isFinite(feed.adjustedAwayScore)) {
+    return { home: feed.adjustedHomeScore, away: feed.adjustedAwayScore, mode: "odds" };
+  }
+  return { home: match.homeScore, away: match.awayScore, mode: "base" };
+}
+
+function liveInput(match) {
+  const manual = state.live[match.id];
+  if (manual && manual.minute !== "") {
+    return {
+      minute: Number(manual.minute || 0),
+      home: Number(manual.home || 0),
+      away: Number(manual.away || 0),
+      source: "手动录入"
+    };
+  }
+  const feed = feedEntry(match);
+  if (feed.status === "live" || feed.status === "finished") {
+    return {
+      minute: Number(feed.minute ?? (feed.status === "finished" ? 90 : 0)),
+      home: Number(feed.home ?? 0),
+      away: Number(feed.away ?? 0),
+      source: feed.source || "自动比分源"
+    };
+  }
+  return null;
+}
+
 function matchStatus(match) {
-  const live = state.live[match.id];
-  if (live && live.minute !== "" && Number(live.minute) > 0 && Number(live.minute) < 90) return "live";
-  if (live && Number(live.minute) >= 90) return "finished";
+  const input = liveInput(match);
+  if (input && input.minute > 0 && input.minute < 90) return "live";
+  if (input && input.minute >= 90) return "finished";
+  const feed = feedEntry(match);
+  if (feed.status === "live" || feed.status === "finished") return feed.status;
   const today = new Date();
   const matchDate = new Date(`${match.date}T23:59:59`);
   return matchDate < today ? "finished" : "upcoming";
@@ -37,31 +76,42 @@ function outcome(home, away) {
 }
 
 function revisedPrediction(match) {
-  const live = state.live[match.id];
-  if (!live || live.minute === "") {
-    return { home: match.homeScore, away: match.awayScore, mode: "base" };
-  }
+  const base = marketPrediction(match);
+  const input = liveInput(match);
+  if (!input) return base;
 
-  const minute = Math.max(0, Math.min(130, Number(live.minute || 0)));
-  const currentHome = Math.max(0, Number(live.home || 0));
-  const currentAway = Math.max(0, Number(live.away || 0));
+  const minute = Math.max(0, Math.min(130, input.minute));
+  const currentHome = Math.max(0, input.home);
+  const currentAway = Math.max(0, input.away);
   if (minute >= 90) {
     return { home: currentHome, away: currentAway, mode: "final" };
   }
 
   const elapsed = Math.max(0.05, Math.min(1, minute / 90));
   const remaining = Math.max(0, 1 - elapsed);
-  const expectedHomeDone = match.homeScore * elapsed;
-  const expectedAwayDone = match.awayScore * elapsed;
+  const expectedHomeDone = base.home * elapsed;
+  const expectedAwayDone = base.away * elapsed;
   const homePressure = currentHome > expectedHomeDone + 0.4 ? 0.55 : 0.95;
   const awayPressure = currentAway > expectedAwayDone + 0.4 ? 0.55 : 0.95;
-  const projectedHome = Math.max(currentHome, Math.round(currentHome + Math.max(0, match.homeScore - expectedHomeDone) * remaining * homePressure));
-  const projectedAway = Math.max(currentAway, Math.round(currentAway + Math.max(0, match.awayScore - expectedAwayDone) * remaining * awayPressure));
-  return { home: projectedHome, away: projectedAway, mode: "live" };
+  const projectedHome = Math.max(currentHome, Math.round(currentHome + Math.max(0, base.home - expectedHomeDone) * remaining * homePressure));
+  const projectedAway = Math.max(currentAway, Math.round(currentAway + Math.max(0, base.away - expectedAwayDone) * remaining * awayPressure));
+  return { home: projectedHome, away: projectedAway, mode: input.source === "手动录入" ? "manual-live" : "feed-live" };
 }
 
 function persistLive() {
   localStorage.setItem("worldcup-live-inputs", JSON.stringify(state.live));
+}
+
+async function fetchLiveData() {
+  try {
+    const response = await fetch(`./live-data.json?ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    state.feed = await response.json();
+    state.feedError = "";
+  } catch (error) {
+    state.feedError = `自动数据源暂不可用：${error.message}`;
+  }
+  render();
 }
 
 function renderGroups() {
@@ -87,7 +137,8 @@ function filteredMatches() {
     const status = matchStatus(match);
     if (state.status !== "all" && status !== state.status) return false;
     if (!term) return true;
-    return [match.home, match.away, match.market, match.rationale, match.group]
+    const feed = feedEntry(match);
+    return [match.home, match.away, match.market, match.rationale, match.group, feed.source, feed.bookmaker]
       .join(" ")
       .toLowerCase()
       .includes(term);
@@ -110,6 +161,21 @@ function renderStandings() {
   }
 }
 
+function feedText(match) {
+  const feed = feedEntry(match);
+  const parts = [];
+  if (feed.source) parts.push(`自动源：${feed.source}`);
+  if (feed.bookmaker) parts.push(`盘口公司：${feed.bookmaker}`);
+  if (Number.isFinite(feed.oddsHomeWin) && Number.isFinite(feed.oddsAwayWin)) {
+    const draw = Number.isFinite(feed.oddsDraw) ? ` / 平 ${(feed.oddsDraw * 100).toFixed(1)}%` : "";
+    parts.push(`去水倾向：主 ${(feed.oddsHomeWin * 100).toFixed(1)}%${draw} / 客 ${(feed.oddsAwayWin * 100).toFixed(1)}%`);
+  }
+  if (feed.status === "live" || feed.status === "finished") {
+    parts.push(`当前比分：${feed.home ?? 0}-${feed.away ?? 0}${feed.minute ? `，${feed.minute}分钟` : ""}`);
+  }
+  return parts.join("；");
+}
+
 function renderMatches() {
   const matches = filteredMatches();
   matchesGrid.innerHTML = "";
@@ -123,6 +189,7 @@ function renderMatches() {
   for (const match of matches) {
     const node = template.content.firstElementChild.cloneNode(true);
     const prediction = revisedPrediction(match);
+    const base = marketPrediction(match);
     const status = matchStatus(match);
     if (status === "live") node.classList.add("live");
 
@@ -130,21 +197,21 @@ function renderMatches() {
     node.querySelector(".date-text").textContent = formatDate(match.date);
     node.querySelector(".home-team").textContent = match.home;
     node.querySelector(".away-team").textContent = match.away;
-    node.querySelector(".base-score").textContent = `${match.homeScore} - ${match.awayScore}`;
+    node.querySelector(".base-score").textContent = `${base.home} - ${base.away}`;
     node.querySelector(".live-score").textContent = `${prediction.home} - ${prediction.away}`;
     node.querySelector(".confidence").textContent = `置信度 ${match.confidence}`;
     if (match.confidence.includes("中")) node.querySelector(".confidence").classList.add("mid");
     node.querySelector(".outcome").textContent = outcome(prediction.home, prediction.away);
-    node.querySelector(".market").textContent = match.market;
+    node.querySelector(".market").textContent = [match.market, feedText(match)].filter(Boolean).join(" ｜ ");
     node.querySelector(".rationale").textContent = match.rationale;
 
-    const live = state.live[match.id] || {};
+    const manual = state.live[match.id] || {};
     const minuteInput = node.querySelector(".minute-input");
     const homeInput = node.querySelector(".home-input");
     const awayInput = node.querySelector(".away-input");
-    minuteInput.value = live.minute ?? "";
-    homeInput.value = live.home ?? "";
-    awayInput.value = live.away ?? "";
+    minuteInput.value = manual.minute ?? "";
+    homeInput.value = manual.home ?? "";
+    awayInput.value = manual.away ?? "";
 
     const updateLive = () => {
       state.live[match.id] = {
@@ -168,8 +235,12 @@ function renderMatches() {
 
 function renderMetrics() {
   document.querySelector("#matchCount").textContent = data.matches.length;
-  document.querySelector("#updatedAt").textContent = data.updatedAt;
-  document.querySelector("#sourceNote").textContent = data.sourceNote;
+  const feedTime = state.feed.generatedAt ? new Date(state.feed.generatedAt).toLocaleString("zh-CN", { hour12: false }) : data.updatedAt;
+  document.querySelector("#updatedAt").textContent = feedTime;
+  const sourceLine = state.feed.sources?.length
+    ? `自动数据源：已接入 ${state.feed.sources.length} 个比分/盘口更新源`
+    : "自动数据源：等待定时任务或 API 配置";
+  document.querySelector("#sourceNote").textContent = state.feedError || `${data.sourceNote} ${sourceLine}。${state.feed.note || ""}`;
   const next = data.matches.find(match => matchStatus(match) === "upcoming");
   document.querySelector("#nextMatch").textContent = next ? `${formatDate(next.date)} ${next.home} vs ${next.away}` : "暂无未赛";
 }
@@ -208,6 +279,7 @@ document.querySelector("#resetLive").addEventListener("click", () => {
 });
 
 renderClock();
-setInterval(renderClock, 1000);
 render();
-setInterval(render, 60000);
+fetchLiveData();
+setInterval(renderClock, 1000);
+setInterval(fetchLiveData, 60000);

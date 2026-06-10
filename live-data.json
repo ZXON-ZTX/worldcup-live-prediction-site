@@ -1,0 +1,468 @@
+{
+  "generatedAt": "2026-06-10T10:50:22.608968+00:00",
+  "mode": "automated",
+  "note": "未配置 ODDS_API_KEY，跳过盘口自动更新。",
+  "sources": [
+    "ESPN scoreboard 20260611",
+    "ESPN scoreboard 20260612",
+    "ESPN scoreboard 20260613",
+    "ESPN scoreboard 20260614",
+    "ESPN scoreboard 20260615",
+    "ESPN scoreboard 20260616",
+    "ESPN scoreboard 20260617",
+    "ESPN scoreboard 20260618",
+    "ESPN scoreboard 20260619",
+    "ESPN scoreboard 20260620",
+    "ESPN scoreboard 20260621",
+    "ESPN scoreboard 20260622",
+    "ESPN scoreboard 20260623",
+    "ESPN scoreboard 20260624",
+    "ESPN scoreboard 20260625",
+    "ESPN scoreboard 20260626",
+    "ESPN scoreboard 20260627",
+    "ESPN scoreboard 20260628"
+  ],
+  "matches": {
+    "A1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "A2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "D1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "B2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "C1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "C2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "E2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "F1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "F2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "G1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "H1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "H2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "G2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "I1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "I2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "J1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "J2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "K1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "K2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "L1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "A3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "A4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "B3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "L2": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "C3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "D3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "C4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "E3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "F3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "F4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "G3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "H3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "G4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "H4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "I3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "I4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "J3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "J4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "K3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "K4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "L3": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "A5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "A6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "B5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "C5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "C6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "L4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "D6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "E6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "F5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "F6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "G5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "G6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "H5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "H6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "I5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "I6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "J5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "J6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "K5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "K6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "L5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    },
+    "L6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "ESPN scoreboard"
+    }
+  }
+}

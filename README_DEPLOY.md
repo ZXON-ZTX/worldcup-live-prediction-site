@@ -50,7 +50,25 @@
 - `styles.css`：页面样式
 - `app.js`：筛选、实时修正和前端交互
 - `data.js`：全部小组赛预测数据
+- `live-data.json`：GitHub Actions 自动生成的实时比分/盘口更新数据
+- `scripts/update_live_data.py`：定时更新脚本
+- `.github/workflows/update-live-data.yml`：每 15 分钟自动更新的工作流
 - `assets/stadium-dashboard.png`：顶部视觉素材
 - `vercel.json`：Vercel 静态部署配置
 - `netlify.toml`：Netlify 静态部署配置
 - `.nojekyll`：GitHub Pages 静态文件兼容标记
+
+## 盘口 API 配置
+
+如果要让网站自动根据盘口修正预测，需要添加 GitHub Secret：
+
+`ODDS_API_KEY`
+
+推荐使用 The Odds API。添加位置：
+
+`GitHub 仓库 > Settings > Secrets and variables > Actions > New repository secret`
+
+可选变量：
+
+- `ODDS_SPORT_KEY`：默认 `soccer_fifa_world_cup`
+- `ODDS_REGIONS`：默认 `us,uk,eu`
