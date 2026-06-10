@@ -75,6 +75,64 @@ function outcome(home, away) {
   return "平局";
 }
 
+function groupTeams(group) {
+  const teams = new Set();
+  for (const match of data.matches) {
+    if (match.group !== group) continue;
+    teams.add(match.home);
+    teams.add(match.away);
+  }
+  return [...teams];
+}
+
+function calculateLiveStandings(group) {
+  const table = new Map();
+  for (const team of groupTeams(group)) {
+    table.set(team, { team, played: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0, points: 0 });
+  }
+
+  for (const match of data.matches.filter(item => item.group === group)) {
+    const prediction = revisedPrediction(match);
+    const home = table.get(match.home);
+    const away = table.get(match.away);
+    if (!home || !away) continue;
+
+    home.played += 1;
+    away.played += 1;
+    home.goalsFor += prediction.home;
+    home.goalsAgainst += prediction.away;
+    away.goalsFor += prediction.away;
+    away.goalsAgainst += prediction.home;
+
+    if (prediction.home > prediction.away) {
+      home.wins += 1;
+      away.losses += 1;
+      home.points += 3;
+    } else if (prediction.home < prediction.away) {
+      away.wins += 1;
+      home.losses += 1;
+      away.points += 3;
+    } else {
+      home.draws += 1;
+      away.draws += 1;
+      home.points += 1;
+      away.points += 1;
+    }
+  }
+
+  return [...table.values()]
+    .sort((a, b) => {
+      const goalDiffA = a.goalsFor - a.goalsAgainst;
+      const goalDiffB = b.goalsFor - b.goalsAgainst;
+      return b.points - a.points
+        || goalDiffB - goalDiffA
+        || b.goalsFor - a.goalsFor
+        || a.goalsAgainst - b.goalsAgainst
+        || a.team.localeCompare(b.team, "zh-CN");
+    })
+    .map((row, index) => ({ ...row, rank: index + 1 }));
+}
+
 function revisedPrediction(match) {
   const base = marketPrediction(match);
   const input = liveInput(match);
@@ -146,15 +204,16 @@ function filteredMatches() {
 }
 
 function renderStandings() {
-  document.querySelector("#standingsGroup").textContent = `${state.group}组`;
+  document.querySelector("#standingsGroup").textContent = `${state.group}组 · 实时表`;
   standingsList.innerHTML = "";
-  const rows = data.standings[state.group] || [];
+  const rows = calculateLiveStandings(state.group);
   for (const row of rows) {
+    const goals = `${row.goalsFor}-${row.goalsAgainst}`;
     const item = document.createElement("div");
     item.className = "standing-row";
     item.innerHTML = `
       <div class="rank">${row.rank}</div>
-      <div><strong>${row.team}</strong><br><span>进失球 ${row.goals}</span></div>
+      <div><strong>${row.team}</strong><br><span>进失球 ${goals}</span></div>
       <strong>${row.points}分</strong>
     `;
     standingsList.appendChild(item);
@@ -189,7 +248,6 @@ function renderMatches() {
   for (const match of matches) {
     const node = template.content.firstElementChild.cloneNode(true);
     const prediction = revisedPrediction(match);
-    const base = marketPrediction(match);
     const status = matchStatus(match);
     if (status === "live") node.classList.add("live");
 
@@ -197,7 +255,7 @@ function renderMatches() {
     node.querySelector(".date-text").textContent = formatDate(match.date);
     node.querySelector(".home-team").textContent = match.home;
     node.querySelector(".away-team").textContent = match.away;
-    node.querySelector(".base-score").textContent = `${base.home} - ${base.away}`;
+    node.querySelector(".base-score").textContent = `${match.homeScore} - ${match.awayScore}`;
     node.querySelector(".live-score").textContent = `${prediction.home} - ${prediction.away}`;
     node.querySelector(".confidence").textContent = `置信度 ${match.confidence}`;
     if (match.confidence.includes("中")) node.querySelector(".confidence").classList.add("mid");
@@ -237,8 +295,12 @@ function renderMetrics() {
   document.querySelector("#matchCount").textContent = data.matches.length;
   const feedTime = state.feed.generatedAt ? new Date(state.feed.generatedAt).toLocaleString("zh-CN", { hour12: false }) : data.updatedAt;
   document.querySelector("#updatedAt").textContent = feedTime;
+  const oddsCoverage = data.matches.filter(match => {
+    const feed = feedEntry(match);
+    return feed.bookmaker || Number.isFinite(feed.oddsHomeWin) || Number.isFinite(feed.adjustedHomeScore);
+  }).length;
   const sourceLine = state.feed.sources?.length
-    ? `自动数据源：已接入 ${state.feed.sources.length} 个比分/盘口更新源`
+    ? `自动数据源：已接入 ${state.feed.sources.length} 个比分/盘口更新源；盘口覆盖 ${oddsCoverage}/${data.matches.length} 场`
     : "自动数据源：等待定时任务或 API 配置";
   document.querySelector("#sourceNote").textContent = state.feedError || `${data.sourceNote} ${sourceLine}。${state.feed.note || ""}`;
   const next = data.matches.find(match => matchStatus(match) === "upcoming");

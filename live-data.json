@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T11:27:24.472650+00:00",
+  "generatedAt": "2026-06-10T11:44:46.136314+00:00",
   "mode": "automated",
   "note": "已尝试更新比分与盘口数据。",
   "sources": [
@@ -52,15 +52,29 @@
       "bookmaker": "Marathon Bet",
       "lastOddsUpdate": null
     },
+    "B1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "The Odds API",
+      "oddsHomeWin": 0.543,
+      "oddsDraw": 0.259,
+      "oddsAwayWin": 0.198,
+      "adjustedHomeScore": 1,
+      "adjustedAwayScore": 0,
+      "bookmaker": "Unibet (NL)",
+      "lastOddsUpdate": null
+    },
     "D1": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
       "source": "The Odds API",
-      "oddsHomeWin": 0.471,
-      "oddsDraw": 0.283,
-      "oddsAwayWin": 0.246,
+      "oddsHomeWin": 0.472,
+      "oddsDraw": 0.286,
+      "oddsAwayWin": 0.242,
       "adjustedHomeScore": 1,
       "adjustedAwayScore": 0,
       "bookmaker": "BetMGM",
@@ -116,6 +130,20 @@
       "adjustedAwayScore": 1,
       "bookmaker": "Casumo",
       "source": "The Odds API",
+      "lastOddsUpdate": null
+    },
+    "E1": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "The Odds API",
+      "oddsHomeWin": 0.56,
+      "oddsDraw": 0.038,
+      "oddsAwayWin": 0.402,
+      "adjustedHomeScore": 2,
+      "adjustedAwayScore": 1,
+      "bookmaker": "BetMGM",
       "lastOddsUpdate": null
     },
     "E2": {
@@ -278,8 +306,8 @@
       "home": 0,
       "away": 0,
       "source": "The Odds API",
-      "oddsHomeWin": 0.743,
-      "oddsDraw": 0.172,
+      "oddsHomeWin": 0.748,
+      "oddsDraw": 0.165,
       "oddsAwayWin": 0.086,
       "adjustedHomeScore": 1,
       "adjustedAwayScore": 0,
@@ -354,6 +382,20 @@
       "adjustedHomeScore": 1,
       "adjustedAwayScore": 0,
       "bookmaker": "Winamax (DE)",
+      "lastOddsUpdate": null
+    },
+    "B4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "The Odds API",
+      "oddsHomeWin": 0.602,
+      "oddsDraw": 0.243,
+      "oddsAwayWin": 0.155,
+      "adjustedHomeScore": 2,
+      "adjustedAwayScore": 0,
+      "bookmaker": "LeoVegas (SE)",
       "lastOddsUpdate": null
     },
     "L2": {
@@ -448,6 +490,20 @@
       "adjustedHomeScore": 1,
       "adjustedAwayScore": 0,
       "bookmaker": "Grosvenor",
+      "lastOddsUpdate": null
+    },
+    "E4": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "The Odds API",
+      "oddsHomeWin": 0.778,
+      "oddsDraw": 0.133,
+      "oddsAwayWin": 0.089,
+      "adjustedHomeScore": 1,
+      "adjustedAwayScore": 0,
+      "bookmaker": "Winamax (DE)",
       "lastOddsUpdate": null
     },
     "F4": {
@@ -660,6 +716,20 @@
       "bookmaker": "Tipico",
       "lastOddsUpdate": null
     },
+    "B6": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "The Odds API",
+      "oddsHomeWin": 0.62,
+      "oddsDraw": 0.23,
+      "oddsAwayWin": 0.15,
+      "adjustedHomeScore": 1,
+      "adjustedAwayScore": 0,
+      "bookmaker": "Unibet (FR)",
+      "lastOddsUpdate": null
+    },
     "C5": {
       "status": "upcoming",
       "minute": 0,
@@ -726,6 +796,20 @@
       "bookmaker": "Winamax (DE)",
       "lastOddsUpdate": null
     },
+    "E5": {
+      "status": "upcoming",
+      "minute": 0,
+      "home": 0,
+      "away": 0,
+      "source": "The Odds API",
+      "oddsHomeWin": 0.071,
+      "oddsDraw": 0.155,
+      "oddsAwayWin": 0.774,
+      "adjustedHomeScore": 0,
+      "adjustedAwayScore": 1,
+      "bookmaker": "Unibet (UK)",
+      "lastOddsUpdate": null
+    },
     "E6": {
       "status": "upcoming",
       "minute": 0,
@@ -774,9 +858,9 @@
       "home": 0,
       "away": 0,
       "source": "The Odds API",
-      "oddsHomeWin": 0.416,
-      "oddsDraw": 0.318,
-      "oddsAwayWin": 0.266,
+      "oddsHomeWin": 0.425,
+      "oddsDraw": 0.313,
+      "oddsAwayWin": 0.262,
       "adjustedHomeScore": 1,
       "adjustedAwayScore": 0,
       "bookmaker": "Smarkets",

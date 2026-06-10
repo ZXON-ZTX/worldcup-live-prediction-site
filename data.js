@@ -1,6 +1,6 @@
 window.WORLD_CUP_PREDICTIONS = {
   "updatedAt": "2026-06-10 15:40 Asia/Shanghai",
-  "sourceNote": "A组已按2026-06-10公开盘口更新；B-L组沿用当前小组报告预测，可继续按同一模型更新。",
+  "sourceNote": "A-L组均已接入实时盘口/比分自动更新；页面以最新 live-data.json 的盘口修正比分和动态小组排名为准。",
   "matches": [
     {
       "id": "A1",
