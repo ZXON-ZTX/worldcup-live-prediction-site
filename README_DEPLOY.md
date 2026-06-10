@@ -52,7 +52,7 @@
 - `data.js`：全部小组赛预测数据
 - `live-data.json`：GitHub Actions 自动生成的实时比分/盘口更新数据
 - `scripts/update_live_data.py`：定时更新脚本
-- `.github/workflows/update-live-data.yml`：每 5 分钟自动更新的工作流
+- `.github/workflows/update-live-data.yml`：每 1 小时自动更新的工作流
 - `assets/stadium-dashboard.png`：顶部视觉素材
 - `vercel.json`：Vercel 静态部署配置
 - `netlify.toml`：Netlify 静态部署配置
