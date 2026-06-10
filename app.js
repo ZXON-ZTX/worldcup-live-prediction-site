@@ -282,4 +282,4 @@ renderClock();
 render();
 fetchLiveData();
 setInterval(renderClock, 1000);
-setInterval(fetchLiveData, 60000);
+setInterval(fetchLiveData, 30000);
