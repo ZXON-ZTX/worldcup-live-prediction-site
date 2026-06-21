@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-21T06:17:43.341035+00:00",
+  "generatedAt": "2026-06-21T10:45:28.448347+00:00",
   "mode": "automated",
-  "note": "已尝试更新比分与盘口数据。",
+  "note": "soccer_fifa_world_cup_winner: HTTP Error 422: Unprocessable Entity",
   "sources": [
     "ESPN scoreboard 20260611",
     "ESPN scoreboard 20260612",
@@ -20,8 +20,7 @@
     "ESPN scoreboard 20260625",
     "ESPN scoreboard 20260626",
     "ESPN scoreboard 20260627",
-    "ESPN scoreboard 20260628",
-    "The Odds API soccer_fifa_world_cup"
+    "ESPN scoreboard 20260628"
   ],
   "matches": {
     "A1": {
@@ -267,500 +266,245 @@
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.665,
-      "oddsDraw": 0.205,
-      "oddsAwayWin": 0.13,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Pinnacle",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "H3": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.517,
-      "oddsDraw": 0.051,
-      "oddsAwayWin": 0.432,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 1,
-      "bookmaker": "1xBet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "G4": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.155,
-      "oddsDraw": 0.227,
-      "oddsAwayWin": 0.617,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "PMU (FR)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "H4": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.659,
-      "oddsDraw": 0.23,
-      "oddsAwayWin": 0.111,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "PMU (FR)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "I3": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.525,
-      "oddsDraw": 0.052,
-      "oddsAwayWin": 0.423,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Unibet (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "I4": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.415,
-      "oddsDraw": 0.274,
-      "oddsAwayWin": 0.311,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 1,
-      "bookmaker": "1xBet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "J3": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.61,
-      "oddsDraw": 0.229,
-      "oddsAwayWin": 0.161,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Unibet (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "J4": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.154,
-      "oddsDraw": 0.232,
-      "oddsAwayWin": 0.615,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "1xBet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "K3": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.792,
-      "oddsDraw": 0.133,
-      "oddsAwayWin": 0.075,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Winamax (DE)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "K4": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.619,
-      "oddsDraw": 0.238,
-      "oddsAwayWin": 0.143,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 0,
-      "bookmaker": "LiveScore Bet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "L3": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.78,
-      "oddsDraw": 0.139,
-      "oddsAwayWin": 0.081,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Winamax (DE)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "A5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.283,
-      "oddsDraw": 0.252,
-      "oddsAwayWin": 0.465,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Betfred (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "A6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.171,
-      "oddsDraw": 0.248,
-      "oddsAwayWin": 0.581,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Unibet (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "B5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.388,
-      "oddsDraw": 0.318,
-      "oddsAwayWin": 0.294,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Coolbet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "B6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.661,
-      "oddsDraw": 0.205,
-      "oddsAwayWin": 0.134,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Coolbet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "C5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.133,
-      "oddsDraw": 0.183,
-      "oddsAwayWin": 0.684,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 2,
-      "bookmaker": "PMU (FR)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "C6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.818,
-      "oddsDraw": 0.126,
-      "oddsAwayWin": 0.056,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Tipico",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "L4": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.155,
-      "oddsDraw": 0.233,
-      "oddsAwayWin": 0.612,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Winamax (DE)",
-      "lastOddsUpdate": null
-    },
-    "D5": {
-      "oddsHomeWin": 0.315,
-      "oddsDraw": 0.221,
-      "oddsAwayWin": 0.464,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Winamax (FR)",
-      "source": "The Odds API",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "D6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.328,
-      "oddsDraw": 0.435,
-      "oddsAwayWin": 0.237,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Winamax (DE)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "E5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.45,
-      "oddsDraw": 0.073,
-      "oddsAwayWin": 0.478,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Unibet (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "E6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.247,
-      "oddsDraw": 0.261,
-      "oddsAwayWin": 0.492,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Unibet (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "F5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.449,
-      "oddsDraw": 0.282,
-      "oddsAwayWin": 0.269,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Winamax (DE)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "F6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.063,
-      "oddsDraw": 0.134,
-      "oddsAwayWin": 0.803,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Sky Bet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "G5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.458,
-      "oddsDraw": 0.299,
-      "oddsAwayWin": 0.243,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Smarkets",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "G6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.072,
-      "oddsDraw": 0.157,
-      "oddsAwayWin": 0.771,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 2,
-      "bookmaker": "Betfred (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "H5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.333,
-      "oddsDraw": 0.263,
-      "oddsAwayWin": 0.404,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Tipico",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "H6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.168,
-      "oddsDraw": 0.243,
-      "oddsAwayWin": 0.589,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Sky Bet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "I5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.222,
-      "oddsDraw": 0.247,
-      "oddsAwayWin": 0.531,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 2,
-      "bookmaker": "Smarkets",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "I6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.735,
-      "oddsDraw": 0.185,
-      "oddsAwayWin": 0.081,
-      "adjustedHomeScore": 2,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Coolbet",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "J5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.32,
-      "oddsDraw": 0.309,
-      "oddsAwayWin": 0.371,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Unibet (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "J6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.068,
-      "oddsDraw": 0.122,
-      "oddsAwayWin": 0.811,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 2,
-      "bookmaker": "Tipico",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "K5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.272,
-      "oddsDraw": 0.276,
-      "oddsAwayWin": 0.452,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 1,
-      "bookmaker": "Grosvenor",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "K6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.467,
-      "oddsDraw": 0.267,
-      "oddsAwayWin": 0.267,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Betfred (UK)",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "L5": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.593,
-      "oddsDraw": 0.249,
-      "oddsAwayWin": 0.158,
-      "adjustedHomeScore": 1,
-      "adjustedAwayScore": 0,
-      "bookmaker": "Tipico",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     },
     "L6": {
       "status": "upcoming",
       "minute": 0,
       "home": 0,
       "away": 0,
-      "source": "The Odds API",
-      "oddsHomeWin": 0.086,
-      "oddsDraw": 0.135,
-      "oddsAwayWin": 0.78,
-      "adjustedHomeScore": 0,
-      "adjustedAwayScore": 2,
-      "bookmaker": "FanDuel",
-      "lastOddsUpdate": null
+      "source": "ESPN scoreboard"
     }
   }
 }
