@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T05:03:14.554727+00:00",
+  "generatedAt": "2026-06-27T08:05:40.938182+00:00",
   "mode": "automated",
   "note": "soccer_fifa_world_cup_winner: HTTP Error 422: Unprocessable Entity",
   "sources": [
@@ -423,7 +423,7 @@
       "source": "ESPN scoreboard"
     },
     "G5": {
-      "status": "live",
+      "status": "finished",
       "minute": 90,
       "home": 1,
       "away": 1,
