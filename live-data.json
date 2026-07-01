@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T22:39:03.407067+00:00",
+  "generatedAt": "2026-07-01T00:20:34.918444+00:00",
   "mode": "automated",
   "note": "soccer_fifa_world_cup_winner: HTTP Error 422: Unprocessable Entity",
   "sources": [
@@ -20,7 +20,8 @@
     "ESPN scoreboard 20260625",
     "ESPN scoreboard 20260626",
     "ESPN scoreboard 20260627",
-    "ESPN scoreboard 20260628"
+    "ESPN scoreboard 20260628",
+    "The Odds API soccer_fifa_world_cup"
   ],
   "matches": {
     "A1": {
