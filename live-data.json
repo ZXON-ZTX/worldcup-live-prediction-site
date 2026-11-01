@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-01T09:12:51.754131+00:00",
+  "generatedAt": "2026-11-01T16:00:18.218060+00:00",
   "mode": "automated",
-  "note": "soccer_fifa_world_cup_winner: HTTP Error 422: Unprocessable Entity",
+  "note": "soccer_fifa_world_cup_winner: HTTP Error 502: Bad Gateway",
   "sources": [
     "ESPN scoreboard 20260611",
     "ESPN scoreboard 20260612",
